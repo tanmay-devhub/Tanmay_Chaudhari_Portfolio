@@ -1,12 +1,11 @@
 "use client";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   IconGithub,
   IconLinkedin,
   IconSend,
 } from "./Icons";
-
-const EMAIL = "tanmay_2106@csu.fullerton.edu";
 
 const SOCIALS = [
   {
@@ -33,24 +32,27 @@ export default function Contact({ onToast }: ContactProps) {
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) return;
 
     setSending(true);
-    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
-      setSending(false);
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        { from_name: name, from_email: email, message },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      onToast("Message sent — thanks for reaching out!");
       setName("");
       setEmail("");
       setMessage("");
-      onToast("Email client opened — thanks for reaching out!");
-    }, 800);
+    } catch {
+      onToast("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -61,7 +63,7 @@ export default function Contact({ onToast }: ContactProps) {
           <div className="cf-card">
             <h2 id="contact-heading" className="cf-title">Get In Touch</h2>
 
-            <form onSubmit={handleSubmit} noValidate>
+            {/* <form onSubmit={handleSubmit} noValidate>
               <div className="cf-group">
                 <label className="cf-label" htmlFor="cf-name">Name *</label>
                 <input
@@ -110,9 +112,9 @@ export default function Contact({ onToast }: ContactProps) {
                 aria-label="Send message"
               >
                 <IconSend />
-                {sending ? "Opening…" : "Send Message"}
+                {sending ? "Sending…" : "Send Message"}
               </button>
-            </form>
+            </form> */}
 
             <p className="cf-sep">Or connect with me on social media</p>
 

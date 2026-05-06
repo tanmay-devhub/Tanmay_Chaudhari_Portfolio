@@ -30,7 +30,7 @@ export default function Hero({ onContactClick }: HeroProps) {
           Software Engineer focused on AI, Backend Systems, and Full-Stack Products.
         </p>
         <p className="hero-intro reveal in d3">
-          I build production-grade AI applications and distributed backend infrastructure — from LLM-powered products to container-orchestrated platforms. Currently a Master&apos;s CS student at CSUF, graduating May 2026.
+          I build production-grade AI applications and distributed backend infrastructure from LLM-powered products to container-orchestrated platforms. Currently a Master&apos;s CS student at CSUF, graduating May 2026.
         </p>
         <div className="hero-ctas reveal in d4">
           <a
