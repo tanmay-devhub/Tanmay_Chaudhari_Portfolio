@@ -41,14 +41,23 @@ export default function Contact({ onToast }: ContactProps) {
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        { from_name: name, from_email: email, message },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        {
+          name,
+          from_name: name,
+          email,
+          from_email: email,
+          message,
+          title: `Portfolio Contact from ${name}`,
+        },
+        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! }
       );
       onToast("Message sent — thanks for reaching out!");
       setName("");
       setEmail("");
       setMessage("");
-    } catch {
+    } catch (err) {
+      const e = err as { status?: number; text?: string };
+      console.error("[EmailJS error] status:", e.status, "| text:", e.text);
       onToast("Something went wrong. Please try again.");
     } finally {
       setSending(false);
@@ -63,7 +72,7 @@ export default function Contact({ onToast }: ContactProps) {
           <div className="cf-card">
             <h2 id="contact-heading" className="cf-title">Get In Touch</h2>
 
-            {/* <form onSubmit={handleSubmit} noValidate>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="cf-group">
                 <label className="cf-label" htmlFor="cf-name">Name *</label>
                 <input
@@ -114,7 +123,7 @@ export default function Contact({ onToast }: ContactProps) {
                 <IconSend />
                 {sending ? "Sending…" : "Send Message"}
               </button>
-            </form> */}
+            </form>
 
             <p className="cf-sep">Or connect with me on social media</p>
 

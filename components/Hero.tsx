@@ -18,10 +18,6 @@ export default function Hero({ onContactClick }: HeroProps) {
         <div className="hero-glow" />
       </div>
       <div className="container hero-inner">
-        <div className="hero-availability reveal in">
-          <span className="dot" />
-          <span>Available for New Grad SWE roles · May 2026</span>
-        </div>
         <h1 className="reveal in d1">
           Tanmay<br />
           Chaudhari <span className="accent">/</span>
