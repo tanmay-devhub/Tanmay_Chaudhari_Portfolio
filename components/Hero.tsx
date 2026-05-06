@@ -2,8 +2,15 @@ import { IconResume, IconDownload, IconGithub, IconLinkedin, IconMail } from "./
 
 const META = [
   { k: "Based in", v: "Fullerton, CA" },
-  { k: "Available", v: "May 2026" },
   { k: "Roles", v: "SWE / AI / Backend" },
+];
+
+const FOCUS = [
+  "AI / LLM application engineering",
+  "Backend & distributed API design",
+  "Distributed systems & container orchestration",
+  "Cloud-native infrastructure (AWS, K8s, Docker)",
+  "Full-stack product development",
 ];
 
 interface HeroProps {
@@ -75,6 +82,14 @@ export default function Hero({ onContactClick }: HeroProps) {
               <div className="v">{m.v}</div>
             </div>
           ))}
+        </div>
+        <div className="hero-focus reveal in d5">
+          <div className="k">Focus</div>
+          <ul>
+            {FOCUS.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
