@@ -41,7 +41,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
-# AI / Claude Code
-.claude/
-memory/

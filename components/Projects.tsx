@@ -2,7 +2,6 @@
 import { IconArrowUpRight } from "./Icons";
 import BrowserIsolationVisual from "./visuals/BrowserIsolationVisual";
 import MockInterviewVisual from "./visuals/MockInterviewVisual";
-import MRIVisual from "./visuals/MRIVisual";
 import VideoStreamVisual from "./visuals/VideoStreamVisual";
 import TrustIDVisual from "./visuals/TrustIDVisual";
 
@@ -54,18 +53,6 @@ const PROJECTS = [
     featured: false,
     github: "https://github.com/tanmay-devhub/Trust-ID",
     Visual: TrustIDVisual,
-  },
-  {
-    id: "mri-platform",
-    num: "05",
-    status: "Research",
-    statusClass: "research",
-    title: "Parkinson's Disease Detection",
-    desc: "3D CNN model for early Parkinson's Disease detection on PPMI MRI scans, achieving 92% accuracy with HPC multi-GPU training. Built full preprocessing pipeline: N4 bias correction, skull stripping, registration, and normalization. Research published in two peer-reviewed papers.",
-    tags: ["Python", "PyTorch", "3D CNN", "SimpleITK", "MRI", "HPC", "Deep Learning", "Research"],
-    featured: false,
-    github: "https://github.com/tanmay-devhub",
-    Visual: MRIVisual,
   },
 ];
 

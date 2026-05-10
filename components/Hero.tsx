@@ -2,8 +2,8 @@ import Image from "next/image";
 import { IconResume, IconDownload, IconGithub, IconLinkedin, IconMail } from "./Icons";
 
 const META = [
-  { k: "Based in", v: "Fullerton, CA" },
-  { k: "Roles", v: "SWE / AI / Backend" },
+  { k: "Based in", v: "Fullerton, California" },
+  { k: "Roles", v: "SWE / AI / Fullstack" },
 ];
 
 const FOCUS = [

@@ -36,7 +36,7 @@ export default function Skills() {
     <section id="skills" aria-labelledby="skills-heading">
       <div className="container">
         <div className="section-marker">// 06 — stack</div>
-        <h2 id="skills-heading" className="section-title">Tools I reach for.</h2>
+        <h2 id="skills-heading" className="section-title">My tech stack.</h2>
         <p className="section-sub">A working toolkit, organized by where it fits in the stack.</p>
         <div className="skills-grid">
           {SKILLS.map((s) => (

@@ -42,10 +42,10 @@ export default function Nav({ theme, onThemeToggle, onCmdOpen }: NavProps) {
 
   return (
     <nav className="nav" aria-label="Main navigation">
-      <div className="nav-brand">
+      <a className="nav-brand" href="#hero" aria-label="Back to top">
         <span className="dot" aria-hidden="true" />
         tc.
-      </div>
+      </a>
 
       <div className="nav-links">
         {LINKS.map((l) => (
