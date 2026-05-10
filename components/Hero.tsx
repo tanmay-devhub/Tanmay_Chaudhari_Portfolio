@@ -32,7 +32,7 @@ export default function Hero({ onContactClick }: HeroProps) {
             Chaudhari <span className="accent">/</span>
           </h1>
           <p className="hero-tagline reveal in d2">
-            Software Engineer focused on AI, Backend Systems, and Full-Stack Products.
+            Software Engineer
           </p>
           <p className="hero-intro reveal in d3">
             I build production-grade AI applications and distributed backend infrastructure from LLM-powered products to container-orchestrated platforms. Currently a Master&apos;s CS student at CSUF, graduating May 2026.
