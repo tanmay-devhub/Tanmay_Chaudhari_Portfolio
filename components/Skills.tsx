@@ -17,7 +17,7 @@ const SKILLS = [
   {
     num: "04",
     label: "AI / ML",
-    items: ["Gemini 2.5 Flash", "Groq Whisper", "PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "MTCNN", "LLMs"],
+    items: ["LLMs", "RAG", "LangChain", "Knowledge Graphs", "Gemini 2.5 Flash", "Groq Whisper", "OpenAI API", "PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "MTCNN", "Prompt Engineering", "Embeddings"],
   },
   {
     num: "05",

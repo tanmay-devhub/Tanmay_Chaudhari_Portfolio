@@ -4,23 +4,36 @@ import BrowserIsolationVisual from "./visuals/BrowserIsolationVisual";
 import MockInterviewVisual from "./visuals/MockInterviewVisual";
 import VideoStreamVisual from "./visuals/VideoStreamVisual";
 import TrustIDVisual from "./visuals/TrustIDVisual";
+import RAGVisual from "./visuals/RAGVisual";
 
 const PROJECTS = [
   {
-    id: "browser-isolation",
+    id: "rag-pipeline",
     num: "01",
+    status: "AI / Backend",
+    statusClass: "",
+    title: "RAG Pipeline",
+    desc: "Graph-based Retrieval-Augmented Generation pipeline using a knowledge graph store instead of vector databases. Models entities and relationships as graph nodes and edges, enabling multi-hop traversal and structured context retrieval for grounded, relationship-aware LLM responses.",
+    tags: ["Python", "LLMs", "Knowledge Graph", "Graph Store", "RAG", "LangChain", "Neo4j"],
+    featured: true,
+    github: "https://github.com/tanmay-devhub/RAG",
+    Visual: RAGVisual,
+  },
+  {
+    id: "browser-isolation",
+    num: "02",
     status: "Systems",
     statusClass: "",
     title: "Mini Browser Isolation System",
     desc: "Distributed remote-browser platform — Docker-isolated Chromium sessions, Go orchestrator with CDP input forwarding, WebRTC streaming with WebSocket fallback, Kubernetes HPA autoscaling, coturn STUN/TURN relay, Prometheus + Grafana telemetry, and Playwright E2E coverage.",
     tags: ["Go", "Docker", "Chromium", "WebRTC", "Kubernetes", "Prometheus", "Grafana", "Playwright"],
-    featured: true,
+    featured: false,
     github: "https://github.com/tanmay-devhub/Mini-Browser-Isolation",
     Visual: BrowserIsolationVisual,
   },
   {
     id: "mock-interview",
-    num: "02",
+    num: "03",
     status: "AI / Full-Stack",
     statusClass: "",
     title: "AI Mock Interview App",
@@ -32,7 +45,7 @@ const PROJECTS = [
   },
   {
     id: "video-streaming",
-    num: "03",
+    num: "04",
     status: "Full-Stack",
     statusClass: "wip",
     title: "StreamVault — Video Streaming Platform",
@@ -44,7 +57,7 @@ const PROJECTS = [
   },
   {
     id: "trust-id",
-    num: "04",
+    num: "05",
     status: "Web3 / Full-Stack",
     statusClass: "research",
     title: "TrustID — Decentralized Identity Verification",
@@ -69,7 +82,14 @@ export default function Projects() {
         </p>
         <div className="projects-grid">
           {PROJECTS.map((p) => (
-            <article key={p.id} className={`project-card${p.featured ? " featured" : ""}`}>
+            <a
+              key={p.id}
+              href={p.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${p.title} on GitHub`}
+              className={`project-card${p.featured ? " featured" : ""}`}
+            >
               <div className="project-visual">
                 <p.Visual />
               </div>
@@ -81,15 +101,7 @@ export default function Projects() {
                   </span>
                 </div>
                 <h3 className="project-title">
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${p.title} on GitHub`}
-                    style={{ flex: 1 }}
-                  >
-                    {p.title}
-                  </a>
+                  {p.title}
                   <span className="project-arrow" aria-hidden="true">
                     <IconArrowUpRight />
                   </span>
@@ -101,7 +113,7 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>

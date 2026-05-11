@@ -11,11 +11,13 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
+import ResumeModal from "@/components/ResumeModal";
 import { IconCheck } from "@/components/Icons";
 
 export default function Page() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [cmdOpen, setCmdOpen] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
   const [scrollPct, setScrollPct] = useState(0);
   const [toast, setToast] = useState({ msg: "", show: false });
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -105,7 +107,7 @@ export default function Page() {
       />
 
       <main>
-        <Hero onContactClick={scrollToContact} />
+        <Hero onContactClick={scrollToContact} onResumeClick={() => setResumeOpen(true)} />
         <About />
         <Education />
         <Projects />
@@ -119,6 +121,9 @@ export default function Page() {
 
       {/* command palette */}
       {cmdOpen && <CommandPalette onClose={() => setCmdOpen(false)} />}
+
+      {/* resume modal */}
+      {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
 
       {/* toast */}
       <div

@@ -32,7 +32,7 @@ export default function Experience() {
         <div className="section-marker">// 04 — experience</div>
         <h2 id="exp-heading" className="section-title">Where I&apos;ve worked.</h2>
         <p className="section-sub">
-          Industry experience building web platforms and mobile apps — shipping production code from day one.
+          Industry experience building web platforms and mobile apps shipping production code from day one.
         </p>
 
         <div className="exp-grid">

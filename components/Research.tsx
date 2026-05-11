@@ -39,7 +39,6 @@ export default function Research() {
           {RESEARCH.map((r) => (
             <article key={r.title} className="research-card">
               <div>
-                <div className="research-badge">Published</div>
                 <h3 className="research-title">{r.title}</h3>
                 <p className="research-desc">{r.description}</p>
                 <div className="research-paper">

@@ -84,6 +84,7 @@ export default function Contact({ onToast }: ContactProps) {
                   onChange={(e) => setName(e.target.value)}
                   required
                   autoComplete="name"
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -98,6 +99,7 @@ export default function Contact({ onToast }: ContactProps) {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   autoComplete="email"
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -117,6 +119,7 @@ export default function Contact({ onToast }: ContactProps) {
               <button
                 type="submit"
                 className="cf-btn"
+                suppressHydrationWarning
                 disabled={sending}
                 aria-label="Send message"
               >

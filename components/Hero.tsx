@@ -2,23 +2,16 @@ import Image from "next/image";
 import { IconResume, IconDownload, IconGithub, IconLinkedin, IconMail } from "./Icons";
 
 const META = [
-  { k: "Based in", v: "Fullerton, California" },
+  { k: "Based in", v: "California" },
   { k: "Roles", v: "SWE / AI / Fullstack" },
-];
-
-const FOCUS = [
-  "AI / LLM application engineering",
-  "Backend & distributed API design",
-  "Distributed systems & container orchestration",
-  "Cloud-native infrastructure (AWS, K8s, Docker)",
-  "Full-stack product development",
 ];
 
 interface HeroProps {
   onContactClick: () => void;
+  onResumeClick: () => void;
 }
 
-export default function Hero({ onContactClick }: HeroProps) {
+export default function Hero({ onContactClick, onResumeClick }: HeroProps) {
   return (
     <section id="hero" className="hero" aria-label="Introduction">
       <div className="hero-bg">
@@ -38,15 +31,13 @@ export default function Hero({ onContactClick }: HeroProps) {
             I build production-grade AI applications and distributed backend infrastructure from LLM-powered products to container-orchestrated platforms. Currently a Master&apos;s CS student at CSUF, graduating May 2026.
           </p>
           <div className="hero-ctas reveal in d4">
-            <a
+            <button
               className="btn btn-primary"
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View resume online"
+              onClick={onResumeClick}
+              aria-label="View resume"
             >
               <IconResume /> View Resume
-            </a>
+            </button>
             <a
               className="btn"
               href="/resume.pdf"
@@ -84,14 +75,6 @@ export default function Hero({ onContactClick }: HeroProps) {
                 <div className="v">{m.v}</div>
               </div>
             ))}
-          </div>
-          <div className="hero-focus reveal in d5">
-            <div className="k">Focus</div>
-            <ul>
-              {FOCUS.map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
           </div>
         </div>
 

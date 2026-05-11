@@ -1,4 +1,4 @@
-# Tanmay Chaudhari — Portfolio
+# Tanmay Chaudhari Portfolio
 
 Personal portfolio built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
 
@@ -34,8 +34,6 @@ Get these from [emailjs.com](https://emailjs.com) → Email Services / Email Tem
 
 ### EmailJS template variables
 
-Your EmailJS template must use these variable names:
-
 | Variable | Value |
 |---|---|
 | `{{name}}` | Sender's name |
@@ -50,26 +48,33 @@ Your EmailJS template must use these variable names:
 ```
 port/
 ├── app/
-│   ├── layout.tsx          # Root layout + metadata
-│   ├── page.tsx            # Page orchestrator (theme, scroll, command palette)
-│   └── globals.css         # Global styles and CSS variables
+│   ├── layout.tsx              # Root layout + metadata
+│   ├── page.tsx                # Page orchestrator (theme, scroll, modal, command palette)
+│   └── globals.css             # Global styles and CSS variables
 ├── components/
-│   ├── Hero.tsx            # Intro section
-│   ├── About.tsx           # About section
-│   ├── Education.tsx       # Education section
-│   ├── Projects.tsx        # Featured projects with live visuals
-│   ├── Experience.tsx      # Work experience
-│   ├── Research.tsx        # Published research
-│   ├── Skills.tsx          # Tech stack
-│   ├── Contact.tsx         # Contact form (EmailJS)
-│   ├── Nav.tsx             # Sticky nav with intersection observer
-│   ├── CommandPalette.tsx  # ⌘K / Ctrl+K navigation
+│   ├── Hero.tsx                # Intro section with photo
+│   ├── About.tsx               # About section
+│   ├── Education.tsx           # Education section
+│   ├── Projects.tsx            # Featured projects (entire card links to GitHub)
+│   ├── Experience.tsx          # Work experience
+│   ├── Research.tsx            # Published research
+│   ├── Skills.tsx              # Tech stack
+│   ├── Contact.tsx             # Contact form (EmailJS)
+│   ├── ResumeModal.tsx         # In-page resume viewer modal
+│   ├── Nav.tsx                 # Sticky nav (tc. links to top, intersection observer)
+│   ├── CommandPalette.tsx      # Ctrl+K / Cmd+K navigation
 │   ├── Footer.tsx
-│   ├── Icons.tsx           # SVG icon library
-│   └── visuals/            # Animated project card visuals
+│   ├── Icons.tsx               # SVG icon library
+│   └── visuals/                # Animated SVG visuals per project card
+│       ├── RAGVisual.tsx
+│       ├── BrowserIsolationVisual.tsx
+│       ├── MockInterviewVisual.tsx
+│       ├── VideoStreamVisual.tsx
+│       └── TrustIDVisual.tsx
 ├── public/
-│   └── resume.pdf          # Resume served at /resume.pdf
-├── .env.local              # EmailJS keys (not committed)
+│   ├── resume.pdf              # Resume served at /resume.pdf
+│   └── me.jpg                  # Profile photo
+├── .env.local                  # EmailJS keys (not committed)
 └── .gitignore
 ```
 
@@ -85,6 +90,16 @@ port/
 | 06 | Skills | `Skills.tsx` |
 | 07 | Contact | `Contact.tsx` |
 
+## Projects
+
+| # | Title | Repo |
+|---|---|---|
+| 01 | RAG Pipeline | `tanmay-devhub/RAG` |
+| 02 | Mini Browser Isolation System | `tanmay-devhub/Mini-Browser-Isolation` |
+| 03 | AI Mock Interview App | `tanmay-devhub/AI-Mock-Intervire-App` |
+| 04 | StreamVault — Video Streaming Platform | `tanmay-devhub/streamvault` |
+| 05 | TrustID — Decentralized Identity Verification | `tanmay-devhub/Trust-ID` |
+
 ## Available Scripts
 
 | Command | Description |
@@ -97,13 +112,17 @@ port/
 ## Features
 
 - Dark / light theme toggle with localStorage persistence
-- Command palette (⌘K / Ctrl+K) for keyboard navigation
-- Scroll-spy active nav state via IntersectionObserver
-- Contact form via EmailJS (no backend required)
-- Animated project visuals per card
+- Command palette (Ctrl+K / Cmd+K) for keyboard navigation
+- Scroll-spy active nav with IntersectionObserver
+- `tc.` brand logo scrolls back to top
+- In-page resume viewer modal (blur backdrop, Escape to close, download button)
+- Contact form via EmailJS, no backend required
+- Entire project card clickable to GitHub repo
+- Animated SVG visuals per project card
+- Green accent left-border on all card types (About, Education, Experience, Research, Skills)
+- Profile photo in hero with circular accent frame
 - Fully responsive (mobile breakpoint at 720px)
-- Resume download + preview
 
 ## Deployment
 
-Push to `main` — Vercel auto-deploys on every commit. Add the three `NEXT_PUBLIC_EMAILJS_*` environment variables in the Vercel project settings.
+Push to `main` Vercel auto-deploys on every commit. Add the three `NEXT_PUBLIC_EMAILJS_*` environment variables in Vercel project settings under Environment Variables.
